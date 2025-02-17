@@ -8,8 +8,15 @@ const images = [
     "./assets/image_2.jpeg", 
     "./assets/image_3.jpeg"  
 ];
+const updateImage = () => {
+    imageElement.style.opacity = "0"; 
+    setTimeout(() => {
+        imageElement.src = images[numImage - 1]; 
+        imageElement.style.opacity = "1"; 
+    }, 300); 
+}
 
-function changeImageRight(){
+btnRight.addEventListener("click", () => {
     if (numImage == 3){
     }else{
         btnLeft.style.filter = "brightness(100%)";
@@ -21,9 +28,9 @@ function changeImageRight(){
             btnRight.style.cursor = "default";
         }
     }
-}
+})
 
-function changeImageLeft (){
+btnLeft.addEventListener("click", () => {
     if (numImage == 1){  
     }else{
         btnRight.style.filter = "brightness(100%)";
@@ -35,17 +42,5 @@ function changeImageLeft (){
             btnLeft.style.cursor = "default";
         }
     }
-}
-
-function updateImage(){
-    imageElement.style.opacity = "0"; 
-    setTimeout(() => {
-        imageElement.src = images[numImage - 1]; 
-        imageElement.style.opacity = "1"; 
-    }, 300); 
-}
-
-
-btnRight.addEventListener("click", changeImageRight)
-btnLeft.addEventListener("click", changeImageLeft)
+})
 
